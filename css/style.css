@@ -18,6 +18,11 @@ a:hover
 text-decoration:underline;
 }
 
+a img
+{
+border:0;
+}
+
 p
 {
 line-height:125%;
