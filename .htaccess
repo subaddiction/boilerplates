@@ -1,0 +1,19 @@
+RewriteEngine On
+RewriteBase /
+
+RewriteCond %{HTTP_HOST} ^example.com [NC]
+RewriteRule ^(.*)$ http://www.example.com/$1 [L,R=301]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]*)/?([^/]*)/?([^/]*)/?$ site.php?file=$1&class=$2&page=$3&%{QUERY_STRING}
+
+#<filesMatch "\.(png|jpg|jpeg|gif|css|js)$">
+#Header set Cache-Control "max-age=604800, must-revalidate"
+#</filesMatch>
+
+RewriteRule ^.svn/(.*)$ http://%{HTTP_HOST} [R]
+
+RewriteRule ^.git/(.*)$ http://%{HTTP_HOST} [R]
+
+
