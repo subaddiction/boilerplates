@@ -29,7 +29,7 @@
 	Outdated browser alert!
 	<![endif]-->
 	
-	<h1>HTML5 Boilerplate</h1>
+	<h1><?php echo $_TPL['META_TITLE']; ?></h1>
 		
 	</body>
 </html>
