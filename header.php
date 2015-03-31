@@ -17,7 +17,7 @@
 	<link rel="stylesheet" href="css/ie.css" type="text/css" media="screen" />
 	<![endif]-->
 	<link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
-	<link rel="stylesheet" href="css/desktop.css" type="text/css" media="screen and (min-width:1024px)" />
+	<link rel="stylesheet" href="css/wide.css" type="text/css" media="screen and (min-width:1024px)" />
 	<link rel="stylesheet" href="css/mobile.css" type="text/css" media="screen and (max-width:1023px)" />
 	
 	<script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
