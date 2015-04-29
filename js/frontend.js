@@ -29,14 +29,14 @@ $(document).ready(function(){
 		}
 	});
 	
-
+	
+	
+	// SETUP PANELS WITH WIPING
 	var p_controller = new ScrollMagic.Controller({
 		globalSceneOptions: {
 			triggerHook: 'onLeave'
 		}
 	});
-	
-	//var slides_controller = new ScrollMagic.Controller();
 	
 	var slides = document.querySelectorAll("section.panel");
 	
@@ -48,7 +48,6 @@ $(document).ready(function(){
 			.addTo(p_controller);
 	}
 	
-	
 	var controller = new ScrollMagic.Controller({
 		globalSceneOptions: {
 			triggerHook: 'onEnter',
@@ -56,8 +55,11 @@ $(document).ready(function(){
 		}
 	});
 	
+	
+	// PINNING SOME ELEMENTS
 	new ScrollMagic.Scene({
-			triggerElement: '#animate'
+			//triggerElement: '#animate',
+			triggerElement: slides[1],
 		})
 		//.setPin('#pin'),
 		.setTween("#pin", 0.5, {top: "5%"})
@@ -69,26 +71,43 @@ $(document).ready(function(){
 		//.setPin('#pin'),
 		.setTween("#otherpin", 0.5, {top: "10%"})
 		.addTo(controller);
-		
+	
+	
+	// SOME ANIMATION ON PANELS
 	new ScrollMagic.Scene({
-		triggerElement: "#animate"
+		triggerElement: slides[1],
 	})
-	.setTween("#animate", 0.5, {backgroundColor: "#000000"}) // trigger a TweenMax.to tween
+	.setTween(slides[1], 0.5, {backgroundColor: "#0000aa"})
 	.addTo(controller);
 	
 	new ScrollMagic.Scene({
-		triggerElement: "#animate2"
+		triggerElement: slides[2],
 	})
-	.setTween("#animate2", 0.5, {fontSize: "2em"}) // trigger a TweenMax.to tween
+	.setTween(slides[2], 0.5, {backgroundColor: "#00aa00"})
 	.addTo(controller);
 
 	
 	
+	// OTHER ANIMATIONS ON ELEMENTS
+	new ScrollMagic.Scene({
+		triggerElement: "#animate",
+	})
+	.setTween("#animate", 0.5, {fontSize: "2em"}) // trigger a TweenMax.to tween
+	.addTo(controller);
+	
+	
+	new ScrollMagic.Scene({
+		triggerElement: "#animate2",
+	})
+	.setTween("#animate2", 0.5, {fontSize: "2em"}) // trigger a TweenMax.to tween
+	.addTo(controller);
 	
 	
 
 	/***
-	var pcontroller = new ScrollMagic.Controller({
+	
+	// PARALLAXES
+	var px_controller = new ScrollMagic.Controller({
 		globalSceneOptions: {
 			triggerHook: 'onEnter'
 		}
@@ -106,12 +125,11 @@ $(document).ready(function(){
 			
 			new ScrollMagic.Scene({
 				triggerElement: "#parallax"+i,
-				//duration:240
 				duration:screenHeight
 				}
 			)
 			.setTween(tween)
-			.addTo(pcontroller);
+			.addTo(px_controller);
 		
 		}
 	***/
