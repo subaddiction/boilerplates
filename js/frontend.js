@@ -32,13 +32,16 @@ $(document).ready(function(){
 	
 	
 	// SETUP PANELS WITH WIPING
+	
+	var slides = document.querySelectorAll("section.panel");
+	
 	var p_controller = new ScrollMagic.Controller({
 		globalSceneOptions: {
 			triggerHook: 'onLeave'
 		}
 	});
 	
-	var slides = document.querySelectorAll("section.panel");
+	
 	
 	for (var i=0; i<slides.length; i++) {
 		new ScrollMagic.Scene({
@@ -47,7 +50,13 @@ $(document).ready(function(){
 			.setPin(slides[i])
 			.addTo(p_controller);
 	}
+
 	
+	
+	
+	
+	
+
 	var controller = new ScrollMagic.Controller({
 		globalSceneOptions: {
 			triggerHook: 'onEnter',
@@ -55,35 +64,45 @@ $(document).ready(function(){
 		}
 	});
 	
-	
-	// PINNING SOME ELEMENTS
+	/*****
+	// TWEENING ELEMENT
 	new ScrollMagic.Scene({
 			//triggerElement: '#animate',
 			triggerElement: slides[1],
 		})
 		//.setPin('#pin'),
-		.setTween("#pin", 0.5, {top: "5%"})
+		.setTween("#pin", 1, {top: "5%"})
 		.addTo(controller);
-		
+	*****/	
+	
+
+	// TWEENING MORE ELEMENTS
+	var pintween = [
+		TweenMax.to("#pin", 1, {top: "5%", ease: Linear.easeNone}),
+		TweenMax.to("#otherpin", 1, {top: "10%", ease: Linear.easeNone}),
+	];
+	
 	new ScrollMagic.Scene({
-			triggerElement: '#animate'
+			triggerElement: slides[1],
 		})
-		//.setPin('#pin'),
-		.setTween("#otherpin", 0.5, {top: "10%"})
+		.setTween(pintween)
 		.addTo(controller);
+	
+	
+
 	
 	
 	// SOME ANIMATION ON PANELS
 	new ScrollMagic.Scene({
 		triggerElement: slides[1],
 	})
-	.setTween(slides[1], 0.5, {backgroundColor: "#0000aa"})
+	.setTween(slides[1], 1, {backgroundColor: "#0000aa"})
 	.addTo(controller);
 	
 	new ScrollMagic.Scene({
 		triggerElement: slides[2],
 	})
-	.setTween(slides[2], 0.5, {backgroundColor: "#00aa00"})
+	.setTween(slides[2], 1, {backgroundColor: "#00aa00"})
 	.addTo(controller);
 
 	
@@ -92,14 +111,14 @@ $(document).ready(function(){
 	new ScrollMagic.Scene({
 		triggerElement: "#animate",
 	})
-	.setTween("#animate", 0.5, {fontSize: "2em"}) // trigger a TweenMax.to tween
+	.setTween("#animate", 1, {fontSize:"2em", color:"#ffffff"}) // trigger a TweenMax.to tween
 	.addTo(controller);
 	
 	
 	new ScrollMagic.Scene({
 		triggerElement: "#animate2",
 	})
-	.setTween("#animate2", 0.5, {fontSize: "2em"}) // trigger a TweenMax.to tween
+	.setTween("#animate2", 1, {fontSize:"2em", color:"#ffffff"}) // trigger a TweenMax.to tween
 	.addTo(controller);
 	
 	
@@ -135,9 +154,3 @@ $(document).ready(function(){
 	***/
 	
 });
-
-
-/***
-var controller = new ScrollMagic.Controller();
-
-***/

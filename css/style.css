@@ -38,6 +38,18 @@ section.panel
 height:100%;
 width:100%;
 margin:0;
+border:0;
+border-radius:0;
+overflow:hidden;
+}
+
+section.panel > footer
+{
+width:100%;
+background:#000000;
+color:#ffffff;
+position:absolute;
+bottom:0;
 }
 
 /* Disable padding in grids
