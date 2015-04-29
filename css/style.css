@@ -1,3 +1,8 @@
+html, body
+{
+height:100%;
+}
+
 body {
 border:0;
 margin:0;
@@ -28,6 +33,13 @@ p
 line-height:125%;
 }
 
+section.panel
+{
+height:100%;
+width:100%;
+margin:0;
+}
+
 /* Disable padding in grids
 
 .row
@@ -43,3 +55,19 @@ padding-right:0;
 }
 
 */
+
+
+
+#pin
+{
+position:fixed;
+top:40%;
+z-index:9999;
+}
+
+#otherpin
+{
+position:fixed;
+top:60%;
+z-index:9998;
+}
